@@ -75,7 +75,7 @@ export default (store, {
     res.end()
   } catch (err) {
     if (err instanceof storeErrors.OffsetMismatch) {
-      throw errors.offsetMismatch()
+      throw errors.offsetMismatch(err.message, req.tus.uploadOffset);
     }
     throw err
   }
